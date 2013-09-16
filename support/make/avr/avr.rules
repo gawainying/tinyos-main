@@ -86,8 +86,12 @@ endif
 ifdef DEFAULT_PROGRAM_AVR
 DEFAULT_PROGRAM = $(DEFAULT_PROGRAM_AVR)
 endif
-DEFAULT_PROGRAM ?= dapa
 
+ifeq ($(PLATFORM),iris)
+	DEFAULT_PROGRAM ?= mib510
+else
+	DEFAULT_PROGRAM ?= dapa
+endif
 
 
 BUILDLESS_DEPS += bytes 
